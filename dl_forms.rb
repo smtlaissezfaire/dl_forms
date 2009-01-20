@@ -1,7 +1,7 @@
 module LabeledFormHelper
-  # Copied from Rails 2.0's #label
-  def label_for(object_name, method, options = {})
-    ActionView::Helpers::InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_label_tag(options.delete(:text), options)
+  def label_for(object_name, method, options={ })
+    tag = ActionView::Helpers::InstanceTag.new(Object.new, :foo, self, options.delete(:object))
+    tag.to_label_tag(options.delete(:text), options)
   end
 
   # Creates a label tag.
